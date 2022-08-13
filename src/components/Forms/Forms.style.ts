@@ -12,30 +12,46 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     suspects: {
       textAlign: "center",
-
     },
     root: {
-        padding: theme.spacing(2, 4),
-        // margin: "0 8vw 0 8vw",
-        display: "grid",
-        placeItems: "center",
-        alignItems: "center"
+      padding: theme.spacing(2, 4),
+      alignItems: "center",
     },
     field: {
-        //   padding: theme.spacing(2),
-        textAlign: 'center',
+      textAlign: "center",
     },
     fieldsOccurrence: {
-        padding: theme.spacing(1),
-        // textAlign: 'center',
-        // margin: "0 0 0 1vw",
+      padding: theme.spacing(1),
     },
     checkbox: {
-      //   marginTop: "1vh",
       transform: "scale(1.5)",
+      [theme.breakpoints.down("xs")]: {
+        transform: "scale(1.1)",
+      },
     },
-    address: {
-      //   marginTop: "1vh",
+    dayWeek: {
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 13,
+      },
+    },
+    infoSuspect: {
+      fontSize: 14,
+    },
+    date: {
+      fontSize: 15,
+    },
+    radioSwitch: {
+      display: "grid",
+      placeItems: "center",
+    },
+    victimScholarity: {
+      minWidth: "100%",
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 14,
+      },
+    },
+    buttonSubmit: {
+      padding: theme.spacing(1),
     },
   })
 );

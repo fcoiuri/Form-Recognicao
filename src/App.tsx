@@ -1,12 +1,15 @@
 import React from "react";
-import { Forms } from "./components/Forms";
-import { Title } from "./components/Title";
+import { Home } from "./components/Home/";
+import { PDFViewer } from "@react-pdf/renderer";
+import { CreatePDF } from "./components/CreatePDF";
 
 function App() {
   return (
     <React.Fragment>
-      <Title />
-      <Forms />
+      <Home />
+      {/* <PDFViewer>
+        <CreatePDF />
+      </PDFViewer> */}
     </React.Fragment>
   );
 }
