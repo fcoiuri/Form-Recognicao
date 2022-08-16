@@ -114,27 +114,24 @@ export function StepsProvider({ children }: ProviderProps) {
 
     let error = "";
 
-    if (required && !fieldValue) error = "This field is required";
+    if (required && !fieldValue) error = "Campo obrigatório";
     if (minLength && value && value.length < minLength)
-      error = `Minimum ${minLength} characters is required.`;
+      error = `Mínimo ${minLength} caracteres.`;
     if (maxLength && value && value.length > maxLength)
-      error = "Maximum length exceeded!";
+      error = "Tamanho máximo excedido!";
     if (validate) {
       switch (validate) {
         case "text":
-          if (value) error = helperText || "This field accepts text only.";
+          if (value) error = helperText || "Esse campo só aceita texto";
           break;
 
         case "number":
-          if (value) error = helperText || "This field accepts numbers only.";
+          if (value) error = helperText || "Esse campo só aceita números";
           break;
 
         case "checkbox":
-          if (!checked) error = helperText || "Please provide a valid value.";
-          break;
-
-        case "select":
-          if (!value) error = helperText || "Please select a value.";
+          if (!checked)
+            error = helperText || "Por favor, forneça um valor válido";
           break;
 
         default:
