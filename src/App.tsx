@@ -7,9 +7,6 @@ function App() {
   return (
     <React.Fragment>
       <Home />
-      {/* <PDFViewer>
-        <CreatePDF />
-      </PDFViewer> */}
     </React.Fragment>
   );
 }

@@ -35,7 +35,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     infoSuspect: {
-      fontSize: 14,
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 13,
+      },
     },
     date: {
       fontSize: 15,
@@ -44,14 +46,8 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: "grid",
       placeItems: "center",
     },
-    victimScholarity: {
-      minWidth: "100%",
-      [theme.breakpoints.down("xs")]: {
-        fontSize: 14,
-      },
-    },
-    stepper: {
-      backgroundColor: "#FAF9F6",
+    button: {
+      padding: theme.spacing(1),
     },
   })
 );

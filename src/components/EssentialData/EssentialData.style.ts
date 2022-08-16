@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     dayWeek: {
       [theme.breakpoints.down("xs")]: {
-        fontSize: 13,
+        fontSize: 11,
       },
     },
     infoSuspect: {
@@ -50,8 +50,8 @@ export const useStyles = makeStyles((theme: Theme) =>
         fontSize: 14,
       },
     },
-    stepper: {
-      backgroundColor: "#FAF9F6",
+    button: {
+      padding: theme.spacing(1),
     },
   })
 );

@@ -6,8 +6,8 @@ export const Title: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12}>
-      <Typography variant="h2" className={classes.title}>
+    <Grid container item xs={12} justifyContent="center" alignItems="center">
+      <Typography variant="h3" className={classes.title}>
         Recognição Visuográfica de local de crime
       </Typography>
     </Grid>

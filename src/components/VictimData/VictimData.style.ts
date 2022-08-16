@@ -46,12 +46,10 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     victimScholarity: {
       minWidth: "100%",
-      [theme.breakpoints.down("xs")]: {
-        fontSize: 14,
-      },
+      fontSize: 14,
     },
-    stepper: {
-      backgroundColor: "#FAF9F6",
+    button: {
+      padding: theme.spacing(1),
     },
   })
 );
