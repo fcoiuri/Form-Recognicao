@@ -7,7 +7,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { useStyles } from "./VictimData.style";
-import { AppContext } from "../../Context";
+import { AppContext } from "Context";
 
 export const VictimData: React.FC = () => {
   const { formValues, handleChange, handleBack, handleNext } =

@@ -1,13 +1,13 @@
 import React from "react";
-import { Home } from "./components/Home/";
-import { PDFViewer } from "@react-pdf/renderer";
-import { CreatePDF } from "./components/CreatePDF";
+import { Home } from "components/Home";
+import { ThemeProvider } from "@material-ui/core";
+import { theme } from "_assets/theme";
 
 function App() {
   return (
-    <React.Fragment>
+    <ThemeProvider theme={theme}>
       <Home />
-    </React.Fragment>
+    </ThemeProvider>
   );
 }
 

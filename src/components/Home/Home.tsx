@@ -1,7 +1,7 @@
 import React from "react";
-import { Title } from "../Title";
+import { Title } from "components/Title";
 import { useStyles } from "./Home.style";
-import { Forms } from "../Forms";
+import { Forms } from "components/Forms";
 import { Grid, Paper } from "@material-ui/core";
 
 export const Home: React.FC = () => {

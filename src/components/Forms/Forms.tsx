@@ -1,10 +1,10 @@
 import React from "react";
-import { AppContext } from "../../Context";
-import { EssentialData } from "../EssentialData";
-import { SuspectsData } from "../SuspectsData";
-import { VictimData } from "../VictimData";
-import { Success } from "../Success";
-import { ConfirmData } from "../ConfirmData";
+import { AppContext } from "Context";
+import { EssentialData } from "components/EssentialData";
+import { SuspectsData } from "components/SuspectsData";
+import { VictimData } from "components/VictimData";
+import { Success } from "components/Success";
+import { ConfirmData } from "components/ConfirmData";
 import { Step, StepLabel, Stepper, Grid, Container } from "@material-ui/core";
 import { useStyles } from "./Forms.style";
 

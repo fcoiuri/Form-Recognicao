@@ -8,9 +8,9 @@ import {
   Divider,
 } from "@material-ui/core";
 import { useStyles } from "./ConfirmData.style";
-import { AppContext } from "../../Context";
+import { AppContext } from "Context";
 import { pdf } from "@react-pdf/renderer";
-import { CreatePDF } from "../CreatePDF";
+import { CreatePDF } from "components/CreatePDF";
 // @ts-ignore
 import { saveAs } from "file-saver";
 

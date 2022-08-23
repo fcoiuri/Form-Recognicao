@@ -9,7 +9,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { useStyles } from "./SuspectsData.style";
-import { AppContext } from "../../Context";
+import { AppContext } from "Context";
 
 export const SuspectsData: React.FC = () => {
   const { formValues, handleChange, handleBack, handleNext } =

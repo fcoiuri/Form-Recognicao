@@ -9,7 +9,8 @@ import {
   Button,
 } from "@material-ui/core";
 import { useStyles } from "./EssentialData.style";
-import { AppContext } from "../../Context";
+import { AppContext } from "Context";
+import { week } from "initialValues";
 
 export const EssentialData: React.FC = () => {
   const { formValues, handleChange, handleNext } = React.useContext(AppContext);
@@ -28,7 +29,15 @@ export const EssentialData: React.FC = () => {
     camera,
   } = formValues;
 
+  const [dateWeek, setDateWeek] = React.useState(selectedDate.value);
+  const dateFuture = new Date().toISOString().slice(0, 10);
+
   const classes = useStyles();
+
+  React.useEffect(() => {
+    const newDate = new Date(selectedDate.value!);
+    setDateWeek(week[newDate.getDay()]);
+  }, [setDateWeek, selectedDate.value, dateWeek]);
 
   return (
     <Container component="section" maxWidth="md" className={classes.root}>
@@ -133,16 +142,18 @@ export const EssentialData: React.FC = () => {
             InputLabelProps={{
               shrink: true,
             }}
+            InputProps={{ inputProps: { max: dateFuture } }}
             fullWidth
           />
         </Grid>
 
         <Grid item xs={6} sm={4} className={classes.fieldsOccurrence}>
           <TextField
-            value={dayWeek.value}
+            disabled
+            value={dateWeek}
             onChange={handleChange}
             id="dayWeek"
-            label="Digite o dia da semana"
+            label="Dia da semana"
             variant="outlined"
             fullWidth
             InputLabelProps={{ className: classes.dayWeek }}

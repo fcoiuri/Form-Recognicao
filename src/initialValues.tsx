@@ -1,5 +1,15 @@
 import { ValidationSchema } from "./Context";
 
+export const week = [
+  "Segunda-Feira",
+  "Terça-Feira",
+  "Quarta-Feira",
+  "Quinta-Feira",
+  "Sexta-Feira",
+  "Sábado",
+  "Domingo",
+];
+
 export const initialValues: ValidationSchema = {
   victimPlace: {
     value: false,

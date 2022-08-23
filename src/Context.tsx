@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { initialValues } from "./initialValues";
+import { initialValues } from "initialValues";
 
 export declare type ValidationSchema = Record<
   string,
