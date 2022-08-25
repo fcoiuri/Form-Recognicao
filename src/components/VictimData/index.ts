@@ -1,1 +1,0 @@
-export { VictimData } from "./VictimData";
