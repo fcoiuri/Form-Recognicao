@@ -1,1 +1,0 @@
-export { SuspectsData } from "./SuspectsData";

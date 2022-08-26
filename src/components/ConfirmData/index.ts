@@ -1,1 +1,0 @@
-export { ConfirmData } from "./ConfirmData";
