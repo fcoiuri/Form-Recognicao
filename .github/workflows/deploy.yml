@@ -15,6 +15,9 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: true
+          ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
