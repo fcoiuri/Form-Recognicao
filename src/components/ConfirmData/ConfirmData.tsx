@@ -115,8 +115,8 @@ export const ConfirmData: React.FC = () => {
   }, [victimPlace, victimRescued, selectedDate, camera, suspect]);
 
   return (
-    <>
-      <List disablePadding>
+    <Grid className={classes.root}>
+      <List disablePadding >
         <ListItem>
           <ListItemText
             primary="Vítima no Local"
@@ -337,6 +337,6 @@ export const ConfirmData: React.FC = () => {
           Confirmar & Continuar
         </Button>
       </Grid>
-    </>
+    </Grid>
   );
 };

@@ -38,29 +38,33 @@ export const SuspectsData: React.FC = () => {
             label="Há suspeitos?"
           />
         </Grid>
-        <Grid item xs={12} sm={9} className={classes.fieldsOccurrence}>
-          <TextField
-            value={suspectName.value}
-            onChange={handleChange}
-            id="suspectName"
-            label="Nome(s) / Cognome(s)"
-            variant="outlined"
-            fullWidth
-            name="suspectName"
-          />
-        </Grid>
-        <Grid item xs={12} sm={12} className={classes.fieldsOccurrence}>
-          <TextField
-            value={infoSuspect.value}
-            onChange={handleChange}
-            id="infoSuspect"
-            label="Informações relevantes sobre o (s) suspeito (s)"
-            InputLabelProps={{ className: classes.infoSuspect }}
-            variant="outlined"
-            fullWidth
-            name="infoSuspect"
-          />
-        </Grid>
+        {suspect.value && (
+          <React.Fragment>
+            <Grid item xs={12} sm={9} className={classes.fieldsOccurrence}>
+              <TextField
+                value={suspectName.value}
+                onChange={handleChange}
+                id="suspectName"
+                label="Nome(s) / Cognome(s)"
+                variant="outlined"
+                fullWidth
+                name="suspectName"
+              />
+            </Grid>
+            <Grid item xs={12} sm={12} className={classes.fieldsOccurrence}>
+              <TextField
+                value={infoSuspect.value}
+                onChange={handleChange}
+                id="infoSuspect"
+                label="Informações relevantes sobre o (s) suspeito (s)"
+                InputLabelProps={{ className: classes.infoSuspect }}
+                variant="outlined"
+                fullWidth
+                name="infoSuspect"
+              />
+            </Grid>
+          </React.Fragment>
+        )}
         <Grid
           className={classes.button}
           justifyContent="flex-end"
