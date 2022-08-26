@@ -38,7 +38,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontSize: 14,
     },
     date: {
-      fontSize: 15,
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 14,
+      },
     },
     radioSwitch: {
       display: "grid",

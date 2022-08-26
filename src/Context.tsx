@@ -1,5 +1,10 @@
-import React, { createContext, useReducer } from "react";
+import React from "react";
 import { initialValues } from "initialValues";
+
+const isText = RegExp(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9'\s]+$/i);
+const isDate = RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/);
+const isHour = RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/);
+const isZip = RegExp(/^[0-9]{5}-[0-9]{3}$/);
 
 export declare type ValidationSchema = Record<
   string,
@@ -7,7 +12,7 @@ export declare type ValidationSchema = Record<
     value?: any;
     error?: string;
     required?: boolean;
-    validate?: "text" | "number" | "checkbox" | "select";
+    validate?: "text" | "date" | "hour" | "zip" | "checkbox" | "select";
     minLength?: number;
     maxLength?: number;
     helperText?: string;
@@ -25,7 +30,7 @@ type ContextProps = {
   handleBack: () => void;
 };
 
-export const AppContext = createContext<ContextProps>({
+export const AppContext = React.createContext<ContextProps>({
   activeStep: 0,
   formValues: initialValues,
   handleChange() {},
@@ -89,7 +94,7 @@ function reducer(state: State, action: Action): State {
 }
 
 export function StepsProvider({ children }: ProviderProps) {
-  const [{ activeStep, formValues }, dispatch] = useReducer(reducer, {
+  const [{ activeStep, formValues }, dispatch] = React.useReducer(reducer, {
     activeStep: 0,
     formValues: initialValues,
   });
@@ -122,11 +127,24 @@ export function StepsProvider({ children }: ProviderProps) {
     if (validate) {
       switch (validate) {
         case "text":
-          if (value) error = helperText || "Esse campo só aceita texto";
+          if (value && !isText.test(value))
+            error = helperText || "Esse campo só aceita texto";
           break;
 
-        case "number":
-          if (value) error = helperText || "Esse campo só aceita números";
+        case "date":
+          if (value && !isDate.test(value))
+            error =
+              helperText || "Esse campo só aceita data no formato DD/MM/AAAA";
+          break;
+
+        case "hour":
+          if (value && !isHour.test(value))
+            error = helperText || "Esse campo só aceita hora no formato HH:MM";
+          break;
+
+        case "zip":
+          if (value && !isZip.test(value))
+            error = helperText || "Esse campo só aceita cep no formato nnnnn-nnn";
           break;
 
         case "checkbox":

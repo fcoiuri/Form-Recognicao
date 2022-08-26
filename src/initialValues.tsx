@@ -1,4 +1,4 @@
-import { ValidationSchema } from "./Context";
+import { ValidationSchema } from "Context";
 
 export const week = [
   "Segunda-Feira",
@@ -14,31 +14,39 @@ export const initialValues: ValidationSchema = {
   victimPlace: {
     value: false,
     error: "",
-    required: true,
     validate: "checkbox",
   },
   victimRescued: {
     value: false,
     error: "",
-    required: true,
     validate: "checkbox",
   },
   hospitalOccurrence: {
     value: "",
     error: "",
-    required: true,
     validate: "text",
+  },
+  CEP: {
+    value: "",
+    error: "",
+    required: true,
+    validate: "zip",
+    minLength: 7,
+    maxLength: 9,
   },
   addressOccurrence: {
     value: "",
     error: "",
     required: true,
+    minLength: 4,
     validate: "text",
+    helperText: "Endereço tem que ter no mínimo 4 caracteres",
   },
   neighborhoodOccurrence: {
     value: "",
     error: "",
     required: true,
+    minLength: 3,
     validate: "text",
   },
   ais: {
@@ -50,11 +58,15 @@ export const initialValues: ValidationSchema = {
     value: "",
     error: "",
     validate: "text",
+    required: true,
+    minLength: 3,
   },
   selectedDate: {
     value: "",
     error: "",
-    validate: "text",
+    validate: "date",
+    required: true,
+    helperText: "Insira uma data correta",
   },
   dayWeek: {
     value: "",
@@ -64,12 +76,12 @@ export const initialValues: ValidationSchema = {
   selectedHour: {
     value: "",
     error: "",
-    validate: "text",
+    validate: "hour",
+    required: true,
   },
   camera: {
     value: false,
     error: "",
-    required: true,
     validate: "checkbox",
   },
   suspect: {
@@ -136,6 +148,6 @@ export const initialValues: ValidationSchema = {
   victimScholarity: {
     value: "",
     error: "",
-    validate: "text",
+    validate: "select",
   },
 };
