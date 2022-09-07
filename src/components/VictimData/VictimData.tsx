@@ -28,6 +28,39 @@ export const VictimData: React.FC = () => {
 
   const classes = useStyles();
 
+  const isError = React.useCallback(
+    () =>
+      Object.keys({
+        victimName,
+        dn,
+        victimFather,
+        victimMother,
+        victimGender,
+        victimAddress,
+        victimNeighborhood,
+        victimCity,
+        victimReference,
+        victimScholarity,
+      }).some(
+        (name) =>
+          (formValues[name].required && !formValues[name].value) ||
+          formValues[name].error
+      ),
+    [
+      formValues,
+      victimName,
+      dn,
+      victimFather,
+      victimMother,
+      victimGender,
+      victimAddress,
+      victimNeighborhood,
+      victimCity,
+      victimReference,
+      victimScholarity,
+    ]
+  );
+
   return (
     <Container component="section" maxWidth="md" className={classes.root}>
       <Grid container spacing={3} alignItems="stretch">
@@ -38,6 +71,8 @@ export const VictimData: React.FC = () => {
           <TextField
             value={victimName.value}
             onChange={handleChange}
+            required={victimName.required}
+            error={!!victimName.error}
             id="victimName"
             label="Nome da vítima"
             variant="outlined"
@@ -49,6 +84,8 @@ export const VictimData: React.FC = () => {
           <TextField
             value={victimFather.value}
             onChange={handleChange}
+            required={victimFather.required}
+            error={!!victimFather.error}
             id="victimFather"
             label="Nome do pai da vítima"
             variant="outlined"
@@ -60,6 +97,8 @@ export const VictimData: React.FC = () => {
           <TextField
             value={victimMother.value}
             onChange={handleChange}
+            required={victimMother.required}
+            error={!!victimMother.error}
             id="victimMother"
             label="Nome da mãe da vítima"
             variant="outlined"
@@ -71,6 +110,8 @@ export const VictimData: React.FC = () => {
           <TextField
             value={dn.value}
             onChange={handleChange}
+            required={dn.required}
+            error={!!dn.error}
             id="dn"
             label="D.N"
             variant="outlined"
@@ -83,6 +124,8 @@ export const VictimData: React.FC = () => {
             name="victimGender"
             value={victimGender.value}
             onChange={handleChange}
+            required={victimGender.required}
+            error={!!victimGender.error}
             variant="outlined"
             fullWidth
             select
@@ -135,6 +178,8 @@ export const VictimData: React.FC = () => {
           <TextField
             value={victimAddress.value}
             onChange={handleChange}
+            required={victimAddress.required}
+            error={!!victimAddress.error}
             id="victimAddress"
             label="Endereço"
             variant="outlined"
@@ -146,6 +191,8 @@ export const VictimData: React.FC = () => {
           <TextField
             value={victimNeighborhood.value}
             onChange={handleChange}
+            required={victimNeighborhood.required}
+            error={!!victimNeighborhood.error}
             id="victimNeighborhood"
             label="Bairro"
             variant="outlined"
@@ -157,6 +204,8 @@ export const VictimData: React.FC = () => {
           <TextField
             value={victimCity.value}
             onChange={handleChange}
+            required={victimCity.required}
+            error={!!victimCity.error}
             id="victimCity"
             label="Cidade"
             variant="outlined"
@@ -168,6 +217,8 @@ export const VictimData: React.FC = () => {
           <TextField
             value={victimReference.value}
             onChange={handleChange}
+            required={victimReference.required}
+            error={!!victimReference.error}
             id="victimReference"
             label="Referência"
             variant="outlined"
@@ -183,7 +234,12 @@ export const VictimData: React.FC = () => {
           direction="row"
         >
           <Button onClick={handleBack}>Voltar</Button>
-          <Button variant="contained" color="primary" onClick={handleNext}>
+          <Button
+            variant="contained"
+            disabled={isError()}
+            color="primary"
+            onClick={!isError() ? handleNext : () => null}
+          >
             Próximo
           </Button>
         </Grid>

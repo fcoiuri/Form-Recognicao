@@ -11,7 +11,6 @@ import {
 import { useStyles } from "./EssentialData.style";
 import { AppContext } from "Context";
 import { week } from "initialValues";
-import cep from "cep-promise";
 
 export const EssentialData: React.FC = () => {
   const { formValues, handleChange, handleNext } = React.useContext(AppContext);
@@ -20,7 +19,6 @@ export const EssentialData: React.FC = () => {
     victimPlace,
     victimRescued,
     hospitalOccurrence,
-    CEP,
     addressOccurrence,
     neighborhoodOccurrence,
     ais,
@@ -32,35 +30,18 @@ export const EssentialData: React.FC = () => {
   } = formValues;
 
   const dateFuture = new Date().toISOString().slice(0, 10);
-  const [city, setCity] = React.useState("");
-  const [neighborhood, setNeighborhood] = React.useState("");
-  const [street, setStreet] = React.useState("");
 
   const classes = useStyles();
 
   React.useEffect(() => {
     const newDate = new Date(selectedDate.value!);
     dayWeek.value = week[newDate.getDay()];
-    cep(CEP.value).then(
-      (value: any) => {
-        setCity(value.city);
-        setNeighborhood(value.neighborhood);
-        setStreet(value.street);
-      }
-    );
-    addressOccurrence.value = street;
-    neighborhoodOccurrence.value = neighborhood;
-    cityOccurrence.value = city;
   }, [
     dayWeek,
     selectedDate.value,
-    CEP.value,
     addressOccurrence,
-    street,
     neighborhoodOccurrence,
-    neighborhood,
     cityOccurrence,
-    city,
   ]);
 
   const isError = React.useCallback(
@@ -69,7 +50,6 @@ export const EssentialData: React.FC = () => {
         victimPlace,
         victimRescued,
         hospitalOccurrence,
-        CEP,
         addressOccurrence,
         neighborhoodOccurrence,
         ais,
@@ -87,7 +67,6 @@ export const EssentialData: React.FC = () => {
       victimPlace,
       victimRescued,
       hospitalOccurrence,
-      CEP,
       addressOccurrence,
       neighborhoodOccurrence,
       ais,
@@ -148,21 +127,6 @@ export const EssentialData: React.FC = () => {
 
         <Grid item xs={12} className={classes.essentialData} spacing={2}>
           <Typography variant="h4">Dados essenciais da ocorrência</Typography>
-        </Grid>
-
-        <Grid item xs={5} sm={6} className={classes.fieldsOccurrence}>
-          <TextField
-            value={CEP.value}
-            onChange={handleChange}
-            required={CEP.required}
-            error={!!CEP.error}
-            helperText={CEP.error}
-            id="cep"
-            label="CEP"
-            variant="outlined"
-            fullWidth
-            name="CEP"
-          />
         </Grid>
 
         <Grid item xs={12} sm={6} className={classes.fieldsOccurrence}>

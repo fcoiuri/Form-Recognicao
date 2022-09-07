@@ -1,10 +1,10 @@
 import React from "react";
 import { initialValues } from "initialValues";
 
-const isText = RegExp(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9'\s]+$/i);
+const isText = RegExp(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9'0-9°?\s]+$/i);
+const isText2 = RegExp(/^(-?[1-3]?[0-9]?[0-9]?)°?\s?([0-5]?[0-9])?\'?\s?([0-5]?[0-9].?[0-9]?)?\"$/mg);
 const isDate = RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/);
 const isHour = RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/);
-const isZip = RegExp(/^[0-9]{5}-[0-9]{3}$/);
 
 export declare type ValidationSchema = Record<
   string,
@@ -140,11 +140,6 @@ export function StepsProvider({ children }: ProviderProps) {
         case "hour":
           if (value && !isHour.test(value))
             error = helperText || "Esse campo só aceita hora no formato HH:MM";
-          break;
-
-        case "zip":
-          if (value && !isZip.test(value))
-            error = helperText || "Esse campo só aceita cep no formato nnnnn-nnn";
           break;
 
         case "checkbox":

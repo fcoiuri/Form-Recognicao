@@ -95,7 +95,7 @@ export const ConfirmData: React.FC = () => {
     const asPdf = pdf();
     asPdf.updateContainer(document);
     const blob = await asPdf.toBlob();
-    saveAs(blob, "Recognição Visuográfica de local de crime");
+    saveAs(blob, `Recognição Visuográfica de local de crime ${dateFormat} ${selectedHour.value}`);
     handleNext();
   };
 

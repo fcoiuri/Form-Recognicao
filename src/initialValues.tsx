@@ -26,14 +26,6 @@ export const initialValues: ValidationSchema = {
     error: "",
     validate: "text",
   },
-  CEP: {
-    value: "",
-    error: "",
-    required: true,
-    validate: "zip",
-    minLength: 7,
-    maxLength: 9,
-  },
   addressOccurrence: {
     value: "",
     error: "",
@@ -103,6 +95,7 @@ export const initialValues: ValidationSchema = {
   victimName: {
     value: "",
     error: "",
+    required: true,
     validate: "text",
   },
   dn: {
@@ -118,16 +111,19 @@ export const initialValues: ValidationSchema = {
   victimMother: {
     value: "",
     error: "",
+    required: true,
     validate: "text",
   },
   victimGender: {
     value: "",
     error: "",
+    required: true,
     validate: "text",
   },
   victimAddress: {
     value: "",
     error: "",
+    required: true,
     validate: "text",
   },
   victimNeighborhood: {
@@ -138,6 +134,7 @@ export const initialValues: ValidationSchema = {
   victimCity: {
     value: "",
     error: "",
+    required: true,
     validate: "text",
   },
   victimReference: {
