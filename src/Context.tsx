@@ -2,7 +2,6 @@ import React from "react";
 import { initialValues } from "initialValues";
 
 const isText = RegExp(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9'0-9°?\s]+$/i);
-const isText2 = RegExp(/^(-?[1-3]?[0-9]?[0-9]?)°?\s?([0-5]?[0-9])?\'?\s?([0-5]?[0-9].?[0-9]?)?\"$/mg);
 const isDate = RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/);
 const isHour = RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/);
 
