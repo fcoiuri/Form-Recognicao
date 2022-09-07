@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Form-Recognicao/static/css/main.bd78aacc.css",
-    "main.js": "/Form-Recognicao/static/js/main.942a86bc.js",
+    "main.js": "/Form-Recognicao/static/js/main.e71c8e9c.js",
     "index.html": "/Form-Recognicao/index.html",
     "main.bd78aacc.css.map": "/Form-Recognicao/static/css/main.bd78aacc.css.map",
-    "main.942a86bc.js.map": "/Form-Recognicao/static/js/main.942a86bc.js.map"
+    "main.e71c8e9c.js.map": "/Form-Recognicao/static/js/main.e71c8e9c.js.map"
   },
   "entrypoints": [
     "static/css/main.bd78aacc.css",
-    "static/js/main.942a86bc.js"
+    "static/js/main.e71c8e9c.js"
   ]
 }
